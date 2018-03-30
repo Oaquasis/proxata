@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        proxata\Providers\AppServiceProvider::class,
+        proxata\Providers\AuthServiceProvider::class,
+        // proxata\Providers\BroadcastServiceProvider::class,
+        proxata\Providers\EventServiceProvider::class,
+        proxata\Providers\RouteServiceProvider::class,
 
     ],
 

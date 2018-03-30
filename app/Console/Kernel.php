@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace proxata\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('bing:wallpaper')->twiceDaily(0,7);
     }
 
     /**

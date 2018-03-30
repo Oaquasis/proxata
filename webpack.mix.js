@@ -10,6 +10,10 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+//mix.copyDirectory('node_modules/bulma/sass', 'resources/assets/sass/bulma');
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .sass('resources/assets/sass/app.scss', 'public/css')
+    .options({
+        processCssUrls: false
+    });

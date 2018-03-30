@@ -1,0 +1,80 @@
+body, html{
+  height:100%;
+  font-family: "Roboto", sans-serif;
+}
+
+body{
+  background: url('/storage/background.jpg');
+  background-position: center center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  background-color: #999;
+}
+
+h1, h2, h3, h4{
+  font-family: "Comfortaa", "Roboto", sans-serif;
+}
+
+textarea, input {
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.columns{
+  @media (max-width: $tablet){
+    margin-top:0;
+  }
+}
+
+.column{
+  @media (max-width: $tablet){
+    height:100%;
+    padding:0 0.75rem;
+  }
+}
+
+.is-vertical-center{
+  @media (max-width: $tablet) {
+    padding-top:10%;
+    justify-content: left;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.is-full-height{
+  height:100%;
+}
+
+.is-full-width{
+  width:auto;
+}
+
+.is-square{
+  border-radius:0px;
+}
+
+.input{
+  &:focus, &:active,
+  &.is-focused, &.is-active,
+  &:hover{
+      border-color: lighten($primary, 30%);
+      box-shadow:  0 0 0.125em rgba(39, 60, 117, 0.25);
+      -webkit-box-shadow: 0 0 0 0.125em rgba(39, 60, 117, 0.25);
+  }
+  border:solid 2px #a8b7e2;
+}
+
+.button{
+  border-width: 2px;
+}
+
+.button.is-primary{
+  &:hover{
+    box-shadow:  0 0 0.125em rgba(39, 60, 117, 0.25);
+    -webkit-box-shadow: 0 0 0 0.125em rgba(39, 60, 117, 0.25);
+  }
+  border-color: $primary;
+}
