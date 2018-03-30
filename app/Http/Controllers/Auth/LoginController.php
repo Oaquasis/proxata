@@ -44,7 +44,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return response("Authenticated", 200);
         }else{
-            $this->showLoginForm();
+            return view('auth.login');
         }
     }
 }
