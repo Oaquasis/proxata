@@ -9,17 +9,13 @@
                     <div class="column is-half has-text-right is-size-3"><h1>Proxata</h1></div>
                 </div>
                 <div class="content">
-                    @auth
-                        Welcome AUTHENTICATED USER
-                    @else
-                        Welcome Guest,
-                    @endauth
                     <p class="is-small">Welcome to services guarded by Proxata.<br>
                     Please login below to continue.</p>
                 </div>
                 <div class="box-content">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+                        <input type="hidden" name="redirectUrl" value="{{ request('redirectUrl') }}">
                         <div class="field">
                             <div class="control">
                                 <input id="email" type="email" class="input is-square {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
