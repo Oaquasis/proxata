@@ -101,15 +101,6 @@ class LoginController extends Controller
         $this->redirectTo = $redirectTo ? $redirectTo : '/';
     }
 
-    public function isAuthenticated()
-    {
-        if(Auth::check()){
-            return response("Authenticated", 200);
-        }else{
-            return response("Authentication Required", 401);
-        }
-    }
-
     public function showLoginForm(Request $request)
     {
         return view('auth.login');

@@ -3,6 +3,7 @@
 namespace proxata\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return response('Authenticated', 200)
-            ->header('Content-Type', 'text/plain');
+        if(Auth::check()){
+            return redirect('admin');
+        }else{
+            return response("Authentication Required", 401);
+        }
     }
 }
