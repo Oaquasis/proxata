@@ -62,8 +62,7 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             $this->setRedirection($request->redirectUrl);
-            return redirect()->away($this->redirectTo);
-            //return $this->sendLoginResponse($request);
+            return $this->sendLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -72,6 +71,22 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+            ?: redirect()->away($this->redirectTo);
     }
 
     private function setRedirection($url = False)
