@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/check', 'Auth\LoginController@AuthCheck')->name('AuthCheck');
+Route::get('/auth', 'Auth\LoginController@isAuthenticated')->name('isAuthenticated');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');

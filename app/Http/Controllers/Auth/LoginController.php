@@ -39,12 +39,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function AuthCheck()
+    public function isAuthenticated()
     {
         if(Auth::check()){
             return response("Authenticated", 200);
         }else{
-            return response("Authentication Required", 401);
+            $this->showLoginForm();
         }
     }
 }
