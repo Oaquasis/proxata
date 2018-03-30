@@ -44,7 +44,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return response("Authenticated", 200);
         }else{
-            return view('auth.login');
+            return response("Authentication Required", 401);
         }
     }
 }
