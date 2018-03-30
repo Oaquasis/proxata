@@ -47,4 +47,10 @@ class LoginController extends Controller
             return response("Authentication Required", 401);
         }
     }
+
+    public function showLoginForm(Request $request)
+    {
+        dd($request);
+        return view('auth.login');
+    }
 }
