@@ -47,7 +47,7 @@ class LoginController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function login(Request $request)
+    public function login($redirectTo=false, Request $request)
     {
         $this->validateLogin($request);
 
@@ -61,7 +61,7 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
-            $this->setRedirection($request->redirectUrl);
+            $this->setRedirection($redirectTo);
             return $this->sendLoginResponse($request);
         }
 
